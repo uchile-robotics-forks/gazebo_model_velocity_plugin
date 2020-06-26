@@ -33,6 +33,7 @@
 #include <gazebo/common/common.hh>
 #include <gazebo/physics/physics.hh>
 #include <sdf/sdf.hh>
+#include <ignition/math.hh>
 
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
