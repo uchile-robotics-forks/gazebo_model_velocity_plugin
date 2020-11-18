@@ -360,7 +360,7 @@ namespace gazebo
       if ((tnow - last_command_time_) > ros::Duration(command_timeout_)){
         cmd.linear.x = 0.0;
         cmd.linear.y = 0.0;
-        cmd.angular.z = 0.0;
+        cmd.angular.z = -0.1;
       }
 
       // Apply limits
@@ -391,7 +391,7 @@ namespace gazebo
       double x_vel_cmd = cmd.linear.x * cos(yaw) + cmd.linear.y * sin(yaw);
       double y_vel_cmd = cmd.linear.x * sin(yaw) - cmd.linear.y * cos(yaw);
 
-      parent_->SetLinearVel(ignition::math::Vector3d(x_vel_cmd, y_vel_cmd, 0.0));
+      parent_->SetLinearVel(ignition::math::Vector3d(x_vel_cmd, y_vel_cmd, -0.1));
       parent_->SetAngularVel(ignition::math::Vector3d(0.0, 0.0, cmd.angular.z));
 
       output_vel_pub_.publish(cmd);
