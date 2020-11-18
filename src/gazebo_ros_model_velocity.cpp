@@ -364,20 +364,21 @@ namespace gazebo
       }
 
       // Apply limits
-      double x_lim_factor = limiter_lin_.limit(cmd.linear.x, last_cmd0_.linear.x, last_cmd1_.linear.x, dt.toSec());
-      double y_lim_factor = limiter_lin_.limit(cmd.linear.y, last_cmd0_.linear.y, last_cmd1_.linear.y, dt.toSec());
-      double theta_lim_factor = limiter_ang_.limit(cmd.angular.z, last_cmd0_.angular.z, last_cmd1_.angular.z, dt.toSec());
+      //double x_lim_factor = limiter_lin_.limit(cmd.linear.x, last_cmd0_.linear.x, last_cmd1_.linear.x, dt.toSec());
+      //double y_lim_factor = limiter_lin_.limit(cmd.linear.y, last_cmd0_.linear.y, last_cmd1_.linear.y, dt.toSec());
+      //double theta_lim_factor = limiter_ang_.limit(cmd.angular.z, last_cmd0_.angular.z, last_cmd1_.angular.z, dt.toSec());
 
       last_cmd1_ = last_cmd0_;
       last_cmd0_ = cmd;
 
       // Apply velocity to the Model
+      /*
       if (x_lim_factor != 1.0 || y_lim_factor != 1.0 || theta_lim_factor != 1.0)
         ROS_DEBUG_STREAM("Limiting factors: " <<
           "\nx:     " << x_lim_factor <<
           "\ny:     " << y_lim_factor <<
           "\ntheta: " << theta_lim_factor);
-
+      */
       // We can only set a linear velocity in reference of the world
       // with the Gazebo API, so we compute what is the linear velocity
       // given the angle of the robot
